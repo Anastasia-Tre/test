@@ -1,0 +1,22 @@
+{
+  "name": "test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "series.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anastasia-Tre/test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anastasia-Tre/test/issues"
+  },
+  "homepage": "https://github.com/Anastasia-Tre/test#readme",
+  "dependencies": {
+    "metatests": "^0.7.2"
+  }
+}
