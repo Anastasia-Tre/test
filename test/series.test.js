@@ -1,7 +1,7 @@
 'use strict';
 
 const metatests = require('metatests');
-const { series } = require('./series');
+const { series } = require('../series');
 
 const createFn = value => (err, cb) => {
   setTimeout(() => {
@@ -20,13 +20,17 @@ metatests.test('test series', test => {
   const fns2 = [createAsyncFn(2000), createAsyncFn(60), createAsyncFn(500)];
   const expectedResult = {
     err: null,
-    data: [2000, 60, 500]
+    data: [2000, 60, 500],
   };
 
-  series(fns1, (err, data) => {
-    const result = { err, data };
-    test.strictSame(result, expectedResult);
-  }, { isCb: 1 });
+  series(
+    fns1,
+    (err, data) => {
+      const result = { err, data };
+      test.strictSame(result, expectedResult);
+    },
+    { isCb: 1 }
+  );
 
   series(fns2, (err, data) => {
     const result = { err, data };
@@ -41,13 +45,17 @@ metatests.test('test series with error', test => {
   const fns2 = [createAsyncFn(2000), createAsyncFn(6), createAsyncFn(500)];
   const expectedResult = {
     err: new Error('sorry'),
-    data: undefined
+    data: undefined,
   };
 
-  series(fns1, (err, data) => {
-    const result = { err, data };
-    test.strictSame(result, expectedResult);
-  }, { isCb: 1 });
+  series(
+    fns1,
+    (err, data) => {
+      const result = { err, data };
+      test.strictSame(result, expectedResult);
+    },
+    { isCb: 1 }
+  );
 
   series(fns2, (err, data) => {
     const result = { err, data };
@@ -56,4 +64,3 @@ metatests.test('test series with error', test => {
 
   test.end();
 });
-

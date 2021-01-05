@@ -4,7 +4,9 @@
   "description": "",
   "main": "series.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run lint && metatests test/",
+    "lint": "eslint . && prettier -c \"**/*.js\" \"**/*.json\" \"**/*.md\"",
+    "fmt": "prettier --write \"**/*.js\" \"**/*.json\" \"**/*.md\""
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/Anastasia-Tre/test#readme",
   "dependencies": {
-    "metatests": "^0.7.2"
+    "metatests": "^0.7.2",
+    "prettier": "^2.2.1"
   }
 }
